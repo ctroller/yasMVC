@@ -23,7 +23,3 @@ $autoLoader->register();
 ModuleLoader::loadModule('Db_PDO');
 ModuleLoader::loadModule('Language');
 ModuleLoader::loadModule('Navigation');
-
-//rvDPXGWm0Iuly6d
-$salt = 'tsetroller2012*)69]3s>:P}Q-$1';
-$bcrypt = new Zend\Crypt\Password\Bcrypt(array('salt' => $salt));
