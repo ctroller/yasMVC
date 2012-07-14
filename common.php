@@ -1,8 +1,5 @@
 <?php
-
 session_start();
-
-use yasCMS\ModuleLoader;
 
 date_default_timezone_set('Europe/Zurich');
 
@@ -19,7 +16,3 @@ $autoLoader = new Zend\Loader\StandardAutoloader(array(
             )
         ));
 $autoLoader->register();
-
-ModuleLoader::loadModule('Db_PDO');
-ModuleLoader::loadModule('Language');
-ModuleLoader::loadModule('Navigation');
