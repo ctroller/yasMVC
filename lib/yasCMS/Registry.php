@@ -5,7 +5,7 @@ namespace yasCMS;
 class Registry implements \IteratorAggregate, \ArrayAccess, \Countable
 {
 
-    private static $_array;
+    private $_array;
     private static $_instance;
 
     public static function getInstance()

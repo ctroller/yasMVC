@@ -5,6 +5,16 @@ namespace yasCMS;
 class Commons
 {
 
+    public static function internalRedirect($url)
+    {
+        $protocol = 'http';
+        if ($_SERVER['HTTPS'] == 'on') {
+            $protocol .= 's';
+        }
+
+        self::redirect($protocol . '://' . $_SERVER['HTTP_HOST'] . SCRIPT_PATH . $url);
+    }
+
     public static function redirect($url)
     {
         header('HTTP/1.1 301 Moved Permanently');
@@ -21,6 +31,10 @@ class Commons
         }
 
         header('Connection: close');
+    }
+    
+    public static function onOff( $value ) {
+        return $value == 'on' ? 1 : 0;
     }
 
 }

@@ -6,7 +6,7 @@ class Application
 {
 
     protected static $_instance;
-    protected $controller;
+    protected $request;
 
     public static function getInstance()
     {
@@ -14,6 +14,7 @@ class Application
             $cls = get_called_class();
             self::$_instance = new $cls;
         }
+
         return self::$_instance;
     }
 
@@ -31,39 +32,40 @@ class Application
 
     protected function initSessionData()
     {
-        $_SESSION['current_uri'] = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-        $_SESSION['current_controller'] = $this->controller;
+        Session::set('current_uri', 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+        Session::set('current_controller', $this->getRequest()->getController());
     }
 
-    protected function loadController()
+    protected final function loadController()
     {
-        $params = array();
-        $controller = 'index';
-        if (isset($_GET['params'])) {
-            if (substr($_GET['params'], -1) == '/')
-                $_GET['params'] = substr($_GET['params'], 0, -1);
-            $prm = explode('/', $_GET['params']);
-            $controller = $prm[0];
-            $params = array_splice($prm, 1);
-        }
+        $this->setRequest();
+        $controllerFile = 'controller/' . $this->request->getController() . 'Controller.class.php';
 
-        $this->controller = $controller;
-        Registry::getInstance()->getInstance()->set('params', $params);
-        $controller = 'controller/' . $controller . 'Controller.class.php';
+        if (file_exists($controllerFile)) {
+            include_once $controllerFile;
+            $class = $this->request->getController() . 'Controller';
+            $action = ( $this->request->getAction() ? $this->request->getAction() . 'Action' : $this->request->getController() . 'Action' );
 
-        if (file_exists($controller)) {
-            require_once $controller;
-            $class = $page . 'Controller';
-            $method = ( count($params) > 1 ? $params[0] . 'Action' : $controller . 'Action' );
             $ctr_instance = new $class();
-            $ctr_instance->$method();
+            if (method_exists($ctr_instance, $action))
+                call_user_func(array($ctr_instance, $action));
+            else
+                call_user_func(array($ctr_instance, $this->request->getController() . 'Action'));
+
             return true;
         }
 
         return false;
     }
 
-    public function getController() {
-        return $this->controller;
+    private final function setRequest()
+    {
+        $this->request = new Http\Request();
     }
+
+    public final function getRequest()
+    {
+        return $this->request;
+    }
+
 }
