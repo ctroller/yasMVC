@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Loader;
+namespace yasMVC\Loader;
 
 class Moduleloader
 {

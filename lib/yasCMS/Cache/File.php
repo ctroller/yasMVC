@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Cache;
+namespace yasMVC\Cache;
 
 class File
 {

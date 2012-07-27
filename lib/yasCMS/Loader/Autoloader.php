@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Loader;
+namespace yasMVC\Loader;
 
 if (!defined('DS'))
     define('DS', DIRECTORY_SEPARATOR);

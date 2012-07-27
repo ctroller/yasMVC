@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Db;
+namespace yasMVC\Db;
 
 abstract class Driver
 {
@@ -39,7 +39,7 @@ abstract class Driver
 
     public static function factory($driver, array $config)
     {
-        $driverClassName = 'yasCMS\\Db\\Driver\\' . $driver;
+        $driverClassName = 'yasMVC\\Db\\Driver\\' . $driver;
         try {
             $driver = new $driverClassName($config);
             return $driver;

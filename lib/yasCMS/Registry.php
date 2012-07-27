@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS;
+namespace yasMVC;
 
 class Registry implements \IteratorAggregate, \ArrayAccess, \Countable
 {

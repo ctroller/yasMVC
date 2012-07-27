@@ -1,10 +1,10 @@
 <?php
 
-namespace yasCMS\Db\Driver\Pdo;
+namespace yasMVC\Db\Driver\Pdo;
 
-use yasCMS\Db\DatabaseException;
+use yasMVC\Db\DatabaseException;
 
-class PdoAbstract extends \yasCMS\Db\Driver
+class PdoAbstract extends \yasMVC\Db\Driver
 {
 
     protected $pdoType;

@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Http;
+namespace yasMVC\Http;
 
 class Request
 {

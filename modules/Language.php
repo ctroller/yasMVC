@@ -1,6 +1,6 @@
 <?php
 
-use yasCMS\Registry;
+use yasMVC\Registry;
 
 $languages = array('de', 'en');
 Registry::getInstance()->getInstance()->set('languages', $languages);

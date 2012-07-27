@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Upload;
+namespace yasMVC\Upload;
 
 class File
 {
@@ -45,7 +45,7 @@ class File
         return $this->tempFileName;
     }
 
-    public function start($renamePolicyClassName = 'yasCMS\\Upload\\DefaultRenamePolicy')
+    public function start($renamePolicyClassName = 'yasMVC\\Upload\\DefaultRenamePolicy')
     {
         if (!class_exists($renamePolicyClassName)) {
             //...

@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Upload;
+namespace yasMVC\Upload;
 
 abstract class RenamePolicy
 {

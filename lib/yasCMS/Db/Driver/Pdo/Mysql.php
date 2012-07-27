@@ -1,8 +1,8 @@
 <?php
 
-namespace yasCMS\Db\Driver\Pdo;
+namespace yasMVC\Db\Driver\Pdo;
 
-use yasCMS\Db\Statement\Pdo as Statement;
+use yasMVC\Db\Statement\Pdo as Statement;
 
 class Mysql extends PdoAbstract
 {

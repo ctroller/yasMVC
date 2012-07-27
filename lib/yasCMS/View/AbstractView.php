@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\View;
+namespace yasMVC\View;
 
 abstract class AbstractView
 {
@@ -12,7 +12,7 @@ abstract class AbstractView
     private $_scriptPaths;
     private $_jsScripts = array();
 
-    public function __construct(\yasCMS\Http\Request $request = null)
+    public function __construct(\yasMVC\Http\Request $request = null)
     {
         $this->addScriptPath('tpl/');
         $this->setRequest($request);
@@ -199,10 +199,10 @@ abstract class AbstractView
         return $this->_request;
     }
 
-    public function setRequest(\yasCMS\Http\Request $request)
+    public function setRequest(\yasMVC\Http\Request $request)
     {
         if ($request === null) {
-            $this->request = new yasCMS\Http\Request();
+            $this->request = new yasMVC\Http\Request();
         } else {
             $this->request = $request;
         }

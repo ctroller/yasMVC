@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Form\Element;
+namespace yasMVC\Form\Element;
 
 class Reset extends InputElement
 {

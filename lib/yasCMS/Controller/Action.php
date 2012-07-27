@@ -1,9 +1,9 @@
 <?php
 
-namespace yasCMS\Controller;
+namespace yasMVC\Controller;
 
-use yasCMS\Http;
-use yasCMS\View\View;
+use yasMVC\Http;
+use yasMVC\View\View;
 
 abstract class Action
 {

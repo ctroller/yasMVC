@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\View;
+namespace yasMVC\View;
 
 class View extends AbstractView
 {

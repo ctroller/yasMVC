@@ -1,10 +1,10 @@
 <?php
 
-namespace yasCMS\Db\Statement;
+namespace yasMVC\Db\Statement;
 
 use \PDOException;
 
-class Pdo extends \yasCMS\Db\Statement
+class Pdo extends \yasMVC\Db\Statement
 {
 
     protected $stmt;

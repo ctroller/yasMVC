@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Form;
+namespace yasMVC\Form;
 
 const FORM_METHOD_POST = "post";
 const FORM_METHOD_GET = "get";

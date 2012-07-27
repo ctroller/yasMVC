@@ -1,6 +1,6 @@
 <?php
 
-namespace yasCMS\Db;
+namespace yasMVC\Db;
 
 class DatabaseException extends \Exception
 {
