@@ -26,14 +26,6 @@ class Application
             $ctr_instance = new \errorController();
             $ctr_instance->errorAction();
         }
-
-        $this->initSessionData($found);
-    }
-
-    protected function initSessionData()
-    {
-        Session::set('current_uri', 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-        Session::set('current_controller', $this->getRequest()->getController());
     }
 
     protected final function loadController()
@@ -43,7 +35,7 @@ class Application
 
         if (file_exists($controllerFile)) {
             include_once $controllerFile;
-            $class = $this->request->getController() . 'Controller';
+            $class = ucfirst( $this->request->getController() ) . 'Controller';
             $action = ( $this->request->getAction() ? $this->request->getAction() . 'Action' : $this->request->getController() . 'Action' );
 
             $ctr_instance = new $class();

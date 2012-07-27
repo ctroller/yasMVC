@@ -44,4 +44,14 @@ class Request
         return array_key_exists($index, $this->params) ? $this->params[$index] : $default;
     }
 
+    public static function getPost($key, $default = null)
+    {
+        return array_key_exists($key, $_POST) ? $_POST[$key] : $default;
+    }
+    
+    public static function getServer($key, $default = null)
+    {
+        return array_key_exists($key, $_SERVER) ? $_SERVER[$key] : $default;
+    }
+
 }

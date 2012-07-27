@@ -4,11 +4,10 @@ namespace yasCMS;
 
 class Commons
 {
-
     public static function internalRedirect($url)
     {
         $protocol = 'http';
-        if ($_SERVER['HTTPS'] == 'on') {
+        if (Http\Request::getServer('HTTPS') == 'on') {
             $protocol .= 's';
         }
 
@@ -32,8 +31,9 @@ class Commons
 
         header('Connection: close');
     }
-    
-    public static function onOff( $value ) {
+
+    public static function onOff($value)
+    {
         return $value == 'on' ? 1 : 0;
     }
 

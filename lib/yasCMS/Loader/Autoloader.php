@@ -2,6 +2,9 @@
 
 namespace yasCMS\Loader;
 
+if (!defined('DS'))
+    define('DS', DIRECTORY_SEPARATOR);
+
 class Autoloader
 {
 
@@ -56,7 +59,7 @@ class Autoloader
             // we got a namespace
             $namespace = substr($className, 0, $lastNsPos);
             $className = substr($className, $lastNsPos + 1);
-            $normalizedClass = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR . str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+            $normalizedClass = str_replace('\\', DS, $namespace) . DS . str_replace('_', DS, $className) . '.php';
 
             foreach ($this->namespaces as $ns => $dirs) {
                 if (0 !== strpos($namespace, $ns)) {
@@ -64,7 +67,7 @@ class Autoloader
                 }
 
                 foreach ($dirs as $dir) {
-                    $file = $dir . DIRECTORY_SEPARATOR . $normalizedClass;
+                    $file = $dir . DS . $normalizedClass;
                     if (is_file($file)) {
                         return $file;
                     }
@@ -72,14 +75,14 @@ class Autoloader
             }
         } else {
             // PEAR? I love PEARs.
-            $normalizedClass = str_replace('_', DIRECTORY_SEPARATOR, $class) . '.php';
+            $normalizedClass = str_replace('_', DS, $class) . '.php';
             foreach ($this->prefixes as $prefix => $dirs) {
                 if (0 !== strpos($class, $prefix)) {
                     continue;
                 }
 
                 foreach ($dirs as $dir) {
-                    $file = $dir . DIRECTORY_SEPARATOR . $normalizedClass;
+                    $file = $dir . DS . $normalizedClass;
                     if (is_file($file)) {
                         return $file;
                     }
